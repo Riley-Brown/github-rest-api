@@ -1,9 +1,10 @@
 require("dotenv").config();
 const express = require('express');
 const axios = require('axios');
-
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.get('/', (req, res) => {
   const api = axios.get(`https://api.github.com/users/Riley-Brown/repos?per_page=4&sort=created:asc&client_id=5339e254177ffa590980&client_secret=${process.env.CLIENT_SECRET}`)
